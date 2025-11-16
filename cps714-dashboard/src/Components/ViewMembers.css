@@ -1,0 +1,24 @@
+
+
+.members-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.members-card {
+    width: 350px;
+    padding: 10px;
+    background: #242d44;
+    box-sizing: border-box;
+    border-radius: 25px;
+    position: relative;
+}
+
+.members-head {
+    font-size: 200%;
+    font-weight: bold;
+
+}
+

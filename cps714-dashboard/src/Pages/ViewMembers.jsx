@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
+import MemberCard from '../Components/MemberCard'
+import '../Components/ViewMembers.css'
 
 const viewMembers = () => {
 
@@ -32,7 +34,18 @@ const viewMembers = () => {
   
 
   return (
-    <div>viewMembers</div>
+    <div>
+      {fetchError && (<p>{fetchError}</p>)}
+      {members && (
+        <div className='members'> 
+          <div className='members-grid'>
+            {members.map(members => (
+            <MemberCard key={members.id} members={members} />
+          ))}
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
