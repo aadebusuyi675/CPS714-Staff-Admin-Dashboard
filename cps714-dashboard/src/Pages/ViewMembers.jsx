@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import React, {useState} from 'react'
+import supabase from '../supabase-client'
 
+const viewMembers = () => {
 
+  const [members, setMembers] = useState([])
+  console.log(members)
 
-export default function ViewMembers() {
-    return (
-        <>
-            <div> Hello World! </div>
-        </>
-    )
+  async function fetchMembers() {
+    const {data} = supabase
+      .from('members')
+      .select('*')
+      setMembers(data)
+  }
+
+  return (
+    <div>viewMembers</div>
+  )
 }
+
+export default viewMembers
