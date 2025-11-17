@@ -9,6 +9,34 @@ const EditMember = () => {
     const [first_name, setFirst] = useState("")
     const [last_name, setLast] = useState("")
     const [email, setEmail] = useState("")
+    const [formError, setFormError] = useState(null)
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        if (!first_name || !last_name || !email) {
+            setFormError('Invalid fields. Enter information Correctly')
+            return
+        }
+
+        const { data, error } = await supabase
+            .from('members')
+            .update({ first_name, last_name, email})
+            .eq('member_id', id)
+            .select()
+            console.log({ data, error })
+
+        if (error) {
+            console.log(error)
+            setFormError('Invalid fields. Enter information Correctly')
+        }
+
+        if (data) {
+            console.log(data)
+            setFormError(null)
+            navigate('/members')
+        }
+    }
 
     useEffect(() => {
         const fetchMembers = async () => {
@@ -19,7 +47,7 @@ const EditMember = () => {
             .single()
 
         if (error) {
-            navigate('/', { replace: true})
+            navigate('/members', { replace: true})
         }
         
         if (data) {
@@ -36,7 +64,36 @@ const EditMember = () => {
 
     return (
     <div>
-        <h2>Update - {id}</h2>
+        <form onSubmit={handleSubmit}>
+            <label> First Name: </label>
+            <input 
+                type="text"
+                id="fname"
+                value={first_name}
+                onChange={(e) => setFirst(e.target.value)}
+            />
+
+            <label> Last Name: </label>
+            <input 
+                type="text"
+                id="lname"
+                value={last_name}
+                onChange={(e) => setLast(e.target.value)}
+            />
+
+            <label> Email: </label>
+            <input 
+                type="text"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <button> Update Member Cridentials </button>
+
+            {formError && <p className='error'>{formError}</p>}
+
+        </form>
     </div>
     )
     
