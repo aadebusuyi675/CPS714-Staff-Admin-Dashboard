@@ -6,7 +6,7 @@ const MemberCard = ({ members }) => {
             <header className="members-head">{members.first_name}</header>
             <p>{members.last_name}</p>
             <p>{members.email}</p>
-            <button> <Link to={'/' + members.member_id}> Modify </Link></button>
+            <button> <Link to={'/editmembers/' + members.member_id}> Modify </Link></button>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
 
-const EditMember = () => {
+const EditStaff = () => {
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ const EditMember = () => {
     const [email, setEmail] = useState("")
     const [formError, setFormError] = useState(null)
 
-    const [status, setStatus] = useState("Member")
+    const [status, setStatus] = useState("Staff")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,39 +21,39 @@ const EditMember = () => {
             return
         }
 
-        if (status === "Staff") {
-            const memberInfo = { first_name, last_name, email}
+        if (status === "Member") {
+            const staffInfo = { first_name, last_name, email}
 
             const { error: removeError } = await supabase
-                .from('members')
+                .from('instructor')
                 .delete()
-                .eq('member_id', id)
+                .eq('instructor_id', id)
             
             if (removeError) {
                 console.log(removeError)
-                setFormError('Could not remove member from database.')
+                setFormError('Could not remove staff from database.')
                 return
             }
 
             const { error: insertError } = await supabase
-                .from('instructor')
-                .insert(memberInfo)
+                .from('members')
+                .insert(staffInfo)
 
             if (insertError) {
                 console.log(insertError)
-                setFormError('Could not insert new staff into database.')
+                setFormError('Could not insert new member into database.')
                 return
             }
 
-            navigate('/staff')
+            navigate('/members')
             return
         }
 
 
         const { data, error } = await supabase
-            .from('members')
+            .from('instructor')
             .update({ first_name, last_name, email})
-            .eq('member_id', id)
+            .eq('instructor_id', id)
             .select()
 
         if (error) {
@@ -64,20 +64,20 @@ const EditMember = () => {
         if (data) {
             console.log(data)
             setFormError(null)
-            navigate('/members')
+            navigate('/staff')
         }
     }
 
     useEffect(() => {
-        const fetchMembers = async () => {
+        const fetchInstructor = async () => {
             const { data, error } = await supabase
-            .from('members')
+            .from('instructor')
             .select()
-            .eq('member_id', id)
+            .eq('instructor_id', id)
             .single()
 
         if (error) {
-            navigate('/members', { replace: true})
+            navigate('/staff', { replace: true})
         }
         
         if (data) {
@@ -89,7 +89,7 @@ const EditMember = () => {
 
         }
 
-        fetchMembers()
+        fetchInstructor()
     }, [id, navigate]) 
 
     return (
@@ -121,11 +121,11 @@ const EditMember = () => {
 
             <label> Status </label>
                 <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                    <option value="Member"> Member </option>
                     <option value="Staff"> Staff </option>
+                    <option value="Member"> Member </option>
                 </select>
 
-            <button> Update Member Cridentials </button>
+            <button> Update Staff Cridentials </button>
 
             {formError && <p className='error'>{formError}</p>}
 
@@ -137,4 +137,4 @@ const EditMember = () => {
 
 
 
-export default EditMember
+export default EditStaff

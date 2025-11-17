@@ -1,11 +1,10 @@
-import { useState } from 'react'
-
-
+import { Link } from "react-router-dom"
 
 export default function ViewHome() {
     return (
         <>
-            <button> View Members </button>
+            <button> <Link to={"/members"}>View Members</Link></button>
+            <button><Link to={"/staff"}> View Staff </Link></button>
             <button> Manage Members </button>
         </>
     )
