@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
+import '../Components/EditMembers.css'
 
 const EditMember = () => {
     const { id } = useParams()
@@ -94,38 +95,48 @@ const EditMember = () => {
 
     return (
     <div>
+        <header className='title'> Edit Member Information </header>
+
         <form onSubmit={handleSubmit}>
-            <label> First Name: </label>
-            <input 
+            <label className='input'> First Name: </label>
+            <input className='field' 
                 type="text"
                 id="fname"
                 value={first_name}
                 onChange={(e) => setFirst(e.target.value)}
             />
 
-            <label> Last Name: </label>
-            <input 
+            <br/>
+
+            <label className='input'> Last Name: </label>
+            <input className='field'
                 type="text"
                 id="lname"
                 value={last_name}
                 onChange={(e) => setLast(e.target.value)}
             />
 
-            <label> Email: </label>
-            <input 
+            <br/>
+
+            <label className='input'> Email: </label>
+            <input className='field'
                 type="text"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
 
-            <label> Status </label>
-                <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <br/>
+
+            <label className='input'> Status: </label>
+                <select className='field' value={status} onChange={(e) => setStatus(e.target.value)}>
                     <option value="Member"> Member </option>
                     <option value="Staff"> Staff </option>
                 </select>
 
-            <button> Update Member Cridentials </button>
+            <br/> <br/>
+
+            <button className='buttSize'> Update Member Cridentials </button>
 
             {formError && <p className='error'>{formError}</p>}
 

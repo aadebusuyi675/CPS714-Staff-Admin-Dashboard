@@ -35,6 +35,7 @@ const viewMembers = () => {
 
   return (
     <div>
+      <header className='title'> FitHub - Member Management  </header>
       {fetchError && (<p>{fetchError}</p>)}
       {members && (
         <div className='members'> 

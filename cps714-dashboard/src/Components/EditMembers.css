@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Stack+Sans+Headline:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+.title {
+    font-size: 300%;
+    font-weight: bold;
+    font-family: "Stack Sans Headline", sans-serif;
+}
+
+.input {
+    font-size: 150%;
+    font-family: "Reddit Sans", sans-serif;
+}
+
+.field {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 150%;
+}
+
+.buttSize {
+    padding: 15px 60px;
+    font-size: 150%;
+}
