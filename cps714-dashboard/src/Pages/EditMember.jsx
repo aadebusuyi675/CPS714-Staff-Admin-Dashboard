@@ -94,10 +94,14 @@ const EditMember = () => {
     }, [id, navigate]) 
 
     return (
-    <div>
+    <div className='edit-main'>
         <header className='title'> Edit Member Information </header>
+        <br/>
 
         <form onSubmit={handleSubmit}>
+
+            <div className='centerInput'>
+
             <label className='input'> First Name: </label>
             <input className='field' 
                 type="text"
@@ -135,6 +139,8 @@ const EditMember = () => {
                 </select>
 
             <br/> <br/>
+
+            </div>
 
             <button className='buttSize'> Update Member Cridentials </button>
 
