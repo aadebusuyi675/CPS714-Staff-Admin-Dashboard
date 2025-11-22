@@ -1,0 +1,22 @@
+.title {
+    font-size: 400%;
+}
+
+.button {
+    font-size: 120%;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
+
+.icon-setting{
+    font-size: 70px !important;
+}
