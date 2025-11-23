@@ -94,7 +94,7 @@ const EditMember = () => {
     }, [id, navigate]) 
 
     return (
-    <div className='edit-main'>
+    <div>
         <header className='title'> Edit Member Information </header>
         <br/>
 

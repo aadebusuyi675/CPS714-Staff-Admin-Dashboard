@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
-
+import '../Components/EditMembers.css'
 
 const EditStaff = () => {
     const { id } = useParams()
@@ -94,12 +94,15 @@ const EditStaff = () => {
     }, [id, navigate]) 
 
     return (
-    <div className='edit-main'>
+    <div>
         <header className='title'> Edit Member Information </header>
         <br/>
+
+
         <form onSubmit={handleSubmit}>
             
             <div className='centerInput'>
+            
 
             <label className='input'> First Name: </label>
             <input className='field' 
@@ -109,6 +112,8 @@ const EditStaff = () => {
                 onChange={(e) => setFirst(e.target.value)}
             />
 
+            <br/>
+
             <label className='input'> Last Name: </label>
             <input className='field'
                 type="text"
@@ -117,6 +122,8 @@ const EditStaff = () => {
                 onChange={(e) => setLast(e.target.value)}
             />
 
+            <br/>
+
             <label className='input'> Email: </label>
             <input className='field'
                 type="text"
@@ -124,6 +131,8 @@ const EditStaff = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
+            
+            <br/>
 
             <label className='input'> Status </label>
                 <select className='field' value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -132,6 +141,8 @@ const EditStaff = () => {
                 </select>
             
             </div>
+
+            <br/>
 
             <button className='buttSize'> Update Staff Cridentials </button>
 
