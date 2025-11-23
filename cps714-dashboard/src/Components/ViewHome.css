@@ -21,3 +21,11 @@
 .icon-setting{
     font-size: 70px !important;
 }
+
+.email {
+    font-size: 120%;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    border-radius: 40px;
+}

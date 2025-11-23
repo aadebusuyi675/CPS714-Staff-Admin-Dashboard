@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
+import '../Components/EditMembers.css'
 
 const EditStaff = () => {
     const { id } = useParams()
@@ -94,40 +95,44 @@ const EditStaff = () => {
 
     return (
     <div>
+        <header className='title'> Edit Member Information </header>
+        <br/>
         <form onSubmit={handleSubmit}>
-            <label> First Name: </label>
-            <input 
+            <div className='centerInput'>
+            <label className='input'> First Name: </label>
+            <input className='field' 
                 type="text"
                 id="fname"
                 value={first_name}
                 onChange={(e) => setFirst(e.target.value)}
             />
 
-            <label> Last Name: </label>
-            <input 
+            <label className='input'> Last Name: </label>
+            <input className='field'
                 type="text"
                 id="lname"
                 value={last_name}
                 onChange={(e) => setLast(e.target.value)}
             />
 
-            <label> Email: </label>
-            <input 
+            <label className='input'> Email: </label>
+            <input className='field'
                 type="text"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
 
-            <label> Status </label>
-                <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <label className='input'> Status </label>
+                <select className='field' value={status} onChange={(e) => setStatus(e.target.value)}>
                     <option value="Staff"> Staff </option>
                     <option value="Member"> Member </option>
                 </select>
 
-            <button> Update Staff Cridentials </button>
+            <button className='buttSize'> Update Staff Cridentials </button>
 
             {formError && <p className='error'>{formError}</p>}
+            </div>
 
         </form>
     </div>

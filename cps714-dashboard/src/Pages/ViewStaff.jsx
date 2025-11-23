@@ -36,6 +36,8 @@ const ViewStaff = () => {
 
   return (
     <div>
+      <header className='title'> FitHub - Staff Management </header>
+      
       {fetchError && (<p>{fetchError}</p>)}
       {instructor && (
         <div className='members'> 
