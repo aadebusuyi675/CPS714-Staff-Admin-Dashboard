@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import supabase from '../supabase-client'
-import '../Components/EditMembers.css'
+
 
 const EditStaff = () => {
     const { id } = useParams()
@@ -94,11 +94,13 @@ const EditStaff = () => {
     }, [id, navigate]) 
 
     return (
-    <div>
+    <div className='edit-main'>
         <header className='title'> Edit Member Information </header>
         <br/>
         <form onSubmit={handleSubmit}>
+            
             <div className='centerInput'>
+
             <label className='input'> First Name: </label>
             <input className='field' 
                 type="text"
@@ -128,11 +130,12 @@ const EditStaff = () => {
                     <option value="Staff"> Staff </option>
                     <option value="Member"> Member </option>
                 </select>
+            
+            </div>
 
             <button className='buttSize'> Update Staff Cridentials </button>
 
             {formError && <p className='error'>{formError}</p>}
-            </div>
 
         </form>
     </div>
