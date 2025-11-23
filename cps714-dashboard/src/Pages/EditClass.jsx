@@ -9,7 +9,8 @@ const EditClass = () => {
     const [classData, setClassData] = useState({
         class_name: "",
         date: "",
-        time: ""
+        time: "",
+        capacity: ""
     })
 
     const [loading, setLoading] = useState(true)
@@ -46,7 +47,8 @@ const EditClass = () => {
             .update({
                 class_name: classData.class_name,
                 date: classData.date,
-                time: classData.time
+                time: classData.time,
+                capacity: classData.capacity
             })
             .eq("class_id", id)
 
@@ -54,7 +56,7 @@ const EditClass = () => {
             setError("Failed to update class.")
             console.log(error)
         } else {
-            navigate("/classes")             // change this path if your classes page is different
+            navigate("/class")             // change this path if your classes page is different
         }
     }
 
@@ -96,6 +98,16 @@ const EditClass = () => {
                     }
                     required
                 />
+                
+                <label>Capacity</label>
+                <input
+                    type="capacity"
+                    value={classData.capacity}
+                    onChange={(e) =>
+                        setClassData({ ...classData, capacity: e.target.value })
+                    }
+                    required
+                />                
 
                 <button type="submit">Save Changes</button>
             </form>
