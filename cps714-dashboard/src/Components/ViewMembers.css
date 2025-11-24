@@ -68,3 +68,10 @@
     font-size: 40px !important;
 }
 
+.border2 {
+    box-sizing: border-box;
+    background-color: #242d44;
+    padding: 5%;
+    border-radius: 10%;
+}
+

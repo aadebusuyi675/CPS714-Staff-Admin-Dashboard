@@ -49,9 +49,10 @@ const ViewReport = () => {
 
   return (
     <div className="main">
-      <header className='title'>FitHub - Reports</header>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_paste" />
+      <header className='title'> <span class="material-symbols-outlined icon-setting">content_paste</span> FitHub - Reports <span class="material-symbols-outlined icon-setting">content_paste</span> </header>
       {fetchError && <p>{fetchError}</p>}
-      <div className="report-grid">
+      <div className="border2">
         <ReportCard title="Total Members" value={totalMembers} />
         <ReportCard title="Total Staff" value={totalStaff} />
         <ReportCard title="Total Classes" value={totalClasses} />
