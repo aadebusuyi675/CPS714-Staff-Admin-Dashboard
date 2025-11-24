@@ -6,8 +6,10 @@ import ViewClass from './Pages/ViewClass'
 import Test from './Pages/Test'
 import EditMember from './Pages/EditMember'
 import ViewStaff from './Pages/ViewStaff'
+import ViewReport from './Pages/ViewReport'
 import EditStaff from './Pages/EditStaff'
 import EditClass from './Pages/EditClass'
+
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path="/staff" element={<ViewStaff/>}/>
         <Route path="/class" element={<ViewClass/>}/>
         <Route path="/editclass/:id" element={<EditClass/>}/>
+        <Route path="/reports" element={<ViewReport />} />
       </Routes>
     </Router>
   )
