@@ -13,7 +13,14 @@ const ViewClass = () => {
     const fetchClass = async() => {
       const { data, error } = await supabase
         .from('classData')
-        .select()
+        .select(`
+          *,
+          instructor: instructor_id (
+            first_name,
+            last_name,
+            email
+          )
+          `)
 
         if (error) {
           setFetchError('Could not get class data.')
