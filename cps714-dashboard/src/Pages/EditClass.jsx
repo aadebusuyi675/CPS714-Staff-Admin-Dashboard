@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import supabase from "../supabase-client"
+import '../Components/EditMembers.css'
 
 const EditClass = () => {
     const { id } = useParams()                // get class id from URL
@@ -69,8 +70,11 @@ const EditClass = () => {
             {error && <p className="error">{error}</p>}
 
             <form onSubmit={handleSubmit} className="edit-form">
-                <label>Class Name</label>
-                <input
+
+                <div className="centerInput">
+
+                <label className="input">Class Name</label>
+                <input className="field"
                     type="text"
                     value={classData.class_name}
                     onChange={(e) =>
@@ -79,8 +83,10 @@ const EditClass = () => {
                     required
                 />
 
-                <label>Date</label>
-                <input
+                <br/>
+
+                <label className="input">Date</label>
+                <input className="field"
                     type="date"
                     value={classData.date}
                     onChange={(e) =>
@@ -89,8 +95,10 @@ const EditClass = () => {
                     required
                 />
 
-                <label>Time</label>
-                <input
+                <br/>
+
+                <label className="input">Time</label>
+                <input className="field"
                     type="time"
                     value={classData.time}
                     onChange={(e) =>
@@ -98,16 +106,22 @@ const EditClass = () => {
                     }
                     required
                 />
+
+                <br/>
                 
-                <label>Capacity</label>
-                <input
+                <label className="input">Capacity</label>
+                <input className="field"
                     type="capacity"
                     value={classData.capacity}
                     onChange={(e) =>
                         setClassData({ ...classData, capacity: e.target.value })
                     }
                     required
-                />                
+                />
+
+                <br/>      
+
+                </div>          
 
                 <button type="submit">Save Changes</button>
             </form>
